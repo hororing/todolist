@@ -98,8 +98,6 @@ class TodoApp {
         switch (this.currentFilter) {
             case 'completed':
                 return this.todos.filter(todo => todo.completed);
-            case 'pending':
-                return this.todos.filter(todo => !todo.completed);
             default:
                 return this.todos;
         }
@@ -160,11 +158,9 @@ class TodoApp {
     updateStats() {
         const totalCount = this.todos.length;
         const completedCount = this.todos.filter(todo => todo.completed).length;
-        const pendingCount = totalCount - completedCount;
 
         document.getElementById('totalCount').textContent = totalCount;
         document.getElementById('completedCount').textContent = completedCount;
-        document.getElementById('pendingCount').textContent = pendingCount;
     }
 
     saveTodos() {
